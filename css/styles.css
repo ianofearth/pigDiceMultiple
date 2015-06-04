@@ -30,3 +30,7 @@ body{
 .player2_info hover{
   text-decoration:underline;
 }
+
+#all_scores {
+  display: none;
+}

@@ -29,6 +29,7 @@ $(document).ready(function(){
     var allRolls = [];
 
     $('#show-game').show();
+    $('#all_scores').show();
 
     $('h2#players-on-team-1').append("<span class='player1_info'>" + newPlayer1.playerName + "</span>");
     $('h2#players-on-team-1').show();
@@ -49,7 +50,6 @@ $(document).ready(function(){
 
       $("button#roll_dice1").click(function(event) {
         event.preventDefault();
-        // var allRolls = [];
         allRolls = [];
         for (var rolls = 1; rolls <= numberDice; rolls +=1) {
           var roll = rollDice(1,6);
@@ -62,11 +62,11 @@ $(document).ready(function(){
           });
         } else {
           newPlayer1.playerTurnScore = 0;
-          alert("You have rolled a 1, no points this turn and it is the next player's turn!")
+          alert("You have rolled a 1. Your turn is over.")
           $('form#game_form1').submit();
         }
         $('.turnPoints1').text(newPlayer1.playerTurnScore);
-        newPlayer1.checkWin(newPlayer1.playerTotalScore);
+
       });
 
       $('form#game_form1').submit(function(event){
@@ -80,6 +80,10 @@ $(document).ready(function(){
         $('h2#players-on-team-2').show()
         $('#player_1_score').text(newPlayer1.playerTotalScore);
         newPlayer1.checkWin(newPlayer1.playerTotalScore);
+        if(newPlayer1.playerTotalScore >= newPlayer1.playerTopScore) {
+          $('h2#players-on-team-2').hide();
+          $('h2#players-on-team-1').hide();
+        }
 
       });
     });
@@ -97,7 +101,6 @@ $(document).ready(function(){
 
       $("button#roll_dice2").click(function(event) {
         event.preventDefault();
-        // var allRolls = [];
         allRolls = [];
         for (var rolls = 1; rolls <= numberDice; rolls +=1) {
           var roll = rollDice(1,6);
@@ -110,11 +113,10 @@ $(document).ready(function(){
           });
         } else {
           newPlayer2.playerTurnScore = 0;
-          alert("You have rolled a 1, no points this turn and it is the next player's turn!")
+          alert("You have rolled a 1. Your turn is over.")
           $('form#game_form2').submit();
         }
         $('.turnPoints2').text(newPlayer2.playerTurnScore);
-        newPlayer2.checkWin(newPlayer2.playerTotalScore);
       });
 
       $('form#game_form2').submit(function(event){
@@ -128,6 +130,10 @@ $(document).ready(function(){
         $('h2#players-on-team-1').show()
         $('#player_2_score').text(newPlayer2.playerTotalScore);
         newPlayer2.checkWin(newPlayer2.playerTotalScore);
+        if(newPlayer2.playerTotalScore >= newPlayer2.playerTopScore) {
+          $('h2#players-on-team-2').hide();
+          $('h2#players-on-team-1').hide();
+        }
       });
     });
 
