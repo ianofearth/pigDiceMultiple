@@ -1,0 +1,33 @@
+body{
+  background-color: black;
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+#show-game{
+  display:none;
+}
+
+#players-on-team-1{
+  display:none;
+}
+
+.player1_info {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.player1_info hover{
+  text-decoration:underline;
+}
+
+#players-on-team-2{
+  display:none;
+}
+.player2_info {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.player2_info hover{
+  text-decoration:underline;
+}

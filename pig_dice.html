@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pig Dice</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Lets Play Pig Dice!</h1>
+
+    <div class="row">
+      <div class="col-md-10">
+        <form id="pig_dice_players">
+          <h2>Start The Game By Adding Players:</h2>
+          <h3>This is a two player game!</h3>
+
+          <div class="form-group">
+            <label for="player_name1">Please Type In Player 1's Name:</label>
+            <input type="text" class="form-control" id="player_name1" value="Player 1">
+            <br>
+            <label for="player_name2">Please Type In Player 2's Name:</label>
+            <input type="text" class="form-control" id="player_name2" value="Player 2">
+            <br>
+            <label for="dice_number">How many dice do you want to play with? </label>
+            <input type="number" class="form-control" id="dice_number">
+          </div>
+          <button type="submit" class="btn">Add Players</button>
+        </form>
+
+        <div id="show-game">
+          <h3>Game Information</h3>
+          <h4>Click on the player who will begin the game!</h4>
+          <br>
+
+          <ul id='players-on-team-1'>
+          </ul>
+
+          <ul id='players-on-team-2'>
+          </ul>
+        </div>
+        <br>
+        <div id='all_scores'>
+          <h4><p>Player 1's Score: <span id='player_1_score'></span></p></h4>
+          <h4><p>Player 2's Score: <span id='player_2_score'></span></p></h4>
+          <br>
+          <button type="submit" class="btn-danger" id='reset_game'>Reset Game</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
