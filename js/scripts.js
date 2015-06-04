@@ -31,6 +31,9 @@ $(document).ready(function(){
     $('#show-game').show();
     $('#all_scores').show();
 
+    $('.player1name').text(newPlayer1.playerName);
+    $('.player2name').text(newPlayer2.playerName);
+
     $('h2#players-on-team-1').append("<span class='player1_info'>" + newPlayer1.playerName + "</span>");
     $('h2#players-on-team-1').show();
     $('h2#players-on-team-2').append("<span class='player2_info'>" + newPlayer2.playerName + "</span>");
@@ -44,8 +47,8 @@ $(document).ready(function(){
       '<h6>Your Roll: <span class="lastRoll1"></span></h6>' +
       '<h6>Turn Points: <span class="turnPoints1"></span></h6>' +
       '<h6>Total Points: <span class="totalPoints1"></span></h6>' +
-      '<button class="btn btn-primary" id="roll_dice1">Roll The Dice</button>' +
-      '<button type="submit" class="btn">Hold</button>' +
+      '<button class="button" id="roll_dice1">Roll</button><br>' +
+      '<button type="submit" class="button2">Hold</button>' +
       '</form>');
 
       $("button#roll_dice1").click(function(event) {
@@ -95,8 +98,8 @@ $(document).ready(function(){
       '<h6>Your Roll: <span class="lastRoll2"></span></h6>' +
       '<h6>Turn Points: <span class="turnPoints2"></span></h6>' +
       '<h6>Total Points: <span class="totalPoints2"></span></h6>' +
-      '<button class="btn btn-primary" id="roll_dice2">Roll The Dice</button>' +
-      '<button type="submit" class="btn">Hold</button>' +
+      '<button class="button" id="roll_dice2">Roll</button>' +
+      '<button type="submit" class="button2">Hold</button>' +
       '</form>');
 
       $("button#roll_dice2").click(function(event) {

@@ -1,7 +1,54 @@
-body{
-  color: black;
-  font-family: 'Arial';
+h1{
+  padding: 20px;
+  text-align: center;
+  background-color: #E9967A;
+  border-radius: 25px;
+  border: solid black;
+  margin: 0 auto;
+  width: 50%;
 }
+
+.btn{
+  background-color: #E9967A;
+  width: 50%;
+  border: solid black;
+}
+
+.button{
+  border-radius: 25px;
+  background-color: #FFEBCD;
+  padding:2px;
+  font-size: 16px;
+  width: 30%;
+  border: solid black;
+  margin-bottom: 5px;
+}
+
+.button2{
+  border-radius: 25px;
+  background-color: DC143C;
+  font-size: 16px;
+  padding:2px;
+  width: 30%;
+  border: solid black;
+}
+
+.form-control{
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+img{
+  width: 50px;
+}
+
+body{
+  text-align: center;
+  color: black;
+  font-family: 'Tahoma';
+}
+
 #show-game{
   display:none;
 }
