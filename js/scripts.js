@@ -9,12 +9,6 @@ function rollDice(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-Player.prototype.checkWin = function(score){
-  if(score >= this.playerTopScore){
-    alert(this.playerName + " has won!");
-  }
-}
-
 $(document).ready(function(){
 
   $('form#pig_dice_players').submit(function(event){
@@ -82,10 +76,10 @@ $(document).ready(function(){
         $('h2#players-on-team-1').hide()
         $('h2#players-on-team-2').show()
         $('#player_1_score').text(newPlayer1.playerTotalScore);
-        newPlayer1.checkWin(newPlayer1.playerTotalScore);
         if(newPlayer1.playerTotalScore >= newPlayer1.playerTopScore) {
           $('h2#players-on-team-2').hide();
           $('h2#players-on-team-1').hide();
+          $('#victory1').show();
         }
 
       });
@@ -98,7 +92,7 @@ $(document).ready(function(){
       '<h6>Your Roll: <span class="lastRoll2"></span></h6>' +
       '<h6>Turn Points: <span class="turnPoints2"></span></h6>' +
       '<h6>Total Points: <span class="totalPoints2"></span></h6>' +
-      '<button class="button" id="roll_dice2">Roll</button>' +
+      '<button class="button" id="roll_dice2">Roll</button><br>' +
       '<button type="submit" class="button2">Hold</button>' +
       '</form>');
 
@@ -132,10 +126,10 @@ $(document).ready(function(){
         $('h2#players-on-team-2').hide()
         $('h2#players-on-team-1').show()
         $('#player_2_score').text(newPlayer2.playerTotalScore);
-        newPlayer2.checkWin(newPlayer2.playerTotalScore);
         if(newPlayer2.playerTotalScore >= newPlayer2.playerTopScore) {
           $('h2#players-on-team-2').hide();
           $('h2#players-on-team-1').hide();
+          $('#victory2').show();
         }
       });
     });

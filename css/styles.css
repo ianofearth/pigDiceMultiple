@@ -39,7 +39,7 @@ h1{
   width: 50%;
 }
 
-img{
+.img2{
   width: 50px;
 }
 
@@ -80,4 +80,12 @@ body{
 
 #all_scores {
   display: none;
+}
+
+#victory1, #victory2  {
+  display: none;
+}
+
+.img1 {
+  width: 50%;
 }
