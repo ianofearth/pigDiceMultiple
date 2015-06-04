@@ -1,7 +1,6 @@
 body{
-  background-color: black;
-  color: white;
-  font-family: 'Gloria Hallelujah', cursive;
+  color: black;
+  font-family: 'Arial';
 }
 #show-game{
   display:none;

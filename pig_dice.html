@@ -13,7 +13,7 @@
     <h1>Lets Play Pig Dice!</h1>
 
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-12">
         <form id="pig_dice_players">
           <h2>Start The Game By Adding Players:</h2>
           <h3>This is a two player game!</h3>
@@ -27,6 +27,9 @@
             <br>
             <label for="dice_number">How many dice do you want to play with? </label>
             <input type="number" class="form-control" id="dice_number">
+            <br>
+            <label for="final_score">How many points do you want to play to? </label>
+            <input type="number" class="form-control" id="final_score">
           </div>
           <button type="submit" class="btn">Add Players</button>
         </form>
@@ -35,12 +38,14 @@
           <h3>Game Information</h3>
           <h4>Click on the player who will begin the game!</h4>
           <br>
-
-          <ul id='players-on-team-1'>
-          </ul>
-
-          <ul id='players-on-team-2'>
-          </ul>
+          <div class="col-md-6">
+            <h2 id='players-on-team-1'>
+            </h2>
+          </div>
+          <div class="col-md-6">
+            <h2 id='players-on-team-2'>
+            </h2>
+          </div>
         </div>
         <br>
         <div id='all_scores'>

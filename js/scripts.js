@@ -1,7 +1,8 @@
-function Player(playerName){
+function Player(playerName, topScore){
   this.playerName = playerName;
   this.playerTurnScore = 0;
   this.playerTotalScore = 0;
+  this.playerTopScore = topScore;
 }
 
 function rollDice(min, max) {
@@ -9,7 +10,7 @@ function rollDice(min, max) {
 }
 
 Player.prototype.checkWin = function(score){
-  if(score >= 100){
+  if(score >= this.playerTopScore){
     alert(this.playerName + " has won!");
   }
 }
@@ -19,28 +20,29 @@ $(document).ready(function(){
   $('form#pig_dice_players').submit(function(event){
     event.preventDefault();
 
+    var topScore = parseInt($('input#final_score').val());
     var inputPlayerName1 = $('input#player_name1').val();
-    var newPlayer1 = new Player(inputPlayerName1);
+    var newPlayer1 = new Player(inputPlayerName1, topScore);
     var inputPlayerName2 = $('input#player_name2').val();
-    var newPlayer2 = new Player(inputPlayerName2);
+    var newPlayer2 = new Player(inputPlayerName2, topScore);
     var numberDice = parseInt($('input#dice_number').val());
     var allRolls = [];
 
     $('#show-game').show();
 
-    $('ul#players-on-team-1').append("<li><span class='player1_info'>" + "<h2>" + newPlayer1.playerName + "</h2>" + "</span></li>");
-    $('ul#players-on-team-1').show();
-    $('ul#players-on-team-2').append("<li><span class='player2_info'>" + "<h2>" + newPlayer2.playerName + "</h2>" + "</span></li>");
-    $('ul#players-on-team-2').show();
+    $('h2#players-on-team-1').append("<span class='player1_info'>" + newPlayer1.playerName + "</span>");
+    $('h2#players-on-team-1').show();
+    $('h2#players-on-team-2').append("<span class='player2_info'>" + newPlayer2.playerName + "</span>");
+    $('h2#players-on-team-2').show();
     $('#pig_dice_players').hide();
 
     $('.player1_info').one('click',function(){
-      $('ul#players-on-team-2').hide();
+      $('h2#players-on-team-2').hide();
 
       $('#players-on-team-1').append('<form id="game_form1"><br>' +
-      '<p>Your Roll: <span class="lastRoll1"></span></p>' +
-      '<p>Turn Points: <span class="turnPoints1"></span></p>' +
-      '<p>Total Points: <span class="totalPoints1"></span></p>' +
+      '<h6>Your Roll: <span class="lastRoll1"></span></h6>' +
+      '<h6>Turn Points: <span class="turnPoints1"></span></h6>' +
+      '<h6>Total Points: <span class="totalPoints1"></span></h6>' +
       '<button class="btn btn-primary" id="roll_dice1">Roll The Dice</button>' +
       '<button type="submit" class="btn">Hold</button>' +
       '</form>');
@@ -74,8 +76,8 @@ $(document).ready(function(){
         newPlayer1.playerTurnScore = 0;
         $('.turnPoints1').text(newPlayer1.playerTurnScore);
         $('.lastRoll1').text("");
-        $('ul#players-on-team-1').hide()
-        $('ul#players-on-team-2').show()
+        $('h2#players-on-team-1').hide()
+        $('h2#players-on-team-2').show()
         $('#player_1_score').text(newPlayer1.playerTotalScore);
         newPlayer1.checkWin(newPlayer1.playerTotalScore);
 
@@ -83,12 +85,12 @@ $(document).ready(function(){
     });
 
     $('.player2_info').one('click', function(){
-      $('ul#players-on-team-1').hide();
+      $('h2#players-on-team-1').hide();
 
       $('#players-on-team-2').append('<form id="game_form2"><br>' +
-      '<p>Your Roll: <span class="lastRoll2"></span></p>' +
-      '<p>Turn Points: <span class="turnPoints2"></span></p>' +
-      '<p>Total Points: <span class="totalPoints2"></span></p>' +
+      '<h6>Your Roll: <span class="lastRoll2"></span></h6>' +
+      '<h6>Turn Points: <span class="turnPoints2"></span></h6>' +
+      '<h6>Total Points: <span class="totalPoints2"></span></h6>' +
       '<button class="btn btn-primary" id="roll_dice2">Roll The Dice</button>' +
       '<button type="submit" class="btn">Hold</button>' +
       '</form>');
@@ -122,8 +124,8 @@ $(document).ready(function(){
         newPlayer2.playerTurnScore = 0;
         $('.turnPoints2').text(newPlayer2.playerTurnScore);
         $('.lastRoll2').text("");
-        $('ul#players-on-team-2').hide()
-        $('ul#players-on-team-1').show()
+        $('h2#players-on-team-2').hide()
+        $('h2#players-on-team-1').show()
         $('#player_2_score').text(newPlayer2.playerTotalScore);
         newPlayer2.checkWin(newPlayer2.playerTotalScore);
       });
