@@ -87,6 +87,7 @@ $(document).ready(function(){
 
     $('.player2_info').one('click', function(){
       $('h2#players-on-team-1').hide();
+      $('#instruction').hide()//newline
 
       $('#players-on-team-2').append('<form id="game_form2"><br>' +
       '<h6>Your Roll: <span class="lastRoll2"></span></h6>' +
@@ -148,6 +149,10 @@ $(document).ready(function(){
       $('.totalPoints2').text(newPlayer2.playerTotalScore);
       $('#player_1_score').text(newPlayer1.playerTotalScore);
       $('#player_2_score').text(newPlayer2.playerTotalScore);
+      $("#victory1").hide();
+      $("#victory2").hide();
+      $('#players-on-team-1').show();
+      $('#players-on-team-2').show();
     });
   });
 });
